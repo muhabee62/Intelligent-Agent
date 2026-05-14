@@ -1,52 +1,58 @@
 # Intelligent Agent
 
-A sophisticated intelligent agent system designed to perform autonomous tasks, make decisions, and interact with various environments.
+A sophisticated intelligent agent system built with C# and Unity for autonomous decision-making, learning, and interaction within game environments and simulations.
 
 ## Overview
 
-This repository contains an implementation of an intelligent agent system that leverages advanced algorithms and frameworks to understand, reason about, and act upon its environment. The agent is capable of learning from interactions, adapting to new situations, and optimizing its behavior over time.
+This repository contains an implementation of an intelligent agent system developed using C# and the Unity game engine. The agent is capable of autonomous behavior, decision-making, environmental awareness, and adaptive learning. This project showcases advanced AI techniques for game development and interactive simulations.
 
 ## Features
 
 - **Autonomous Decision Making** - Intelligent reasoning and decision-making capabilities
-- **Environment Interaction** - Seamless integration with various environments and systems
-- **Learning & Adaptation** - Continuous learning from experience and feedback
-- **Task Planning** - Goal-oriented planning and execution
-- **Multi-Agent Support** - Capable of coordinating with other agents
-- **Extensible Architecture** - Modular design for easy integration and customization
+- **Behavior Trees** - Hierarchical task planning and execution
+- **Pathfinding & Navigation** - Intelligent movement and path optimization
+- **Environmental Awareness** - Perception and interaction with the game world
+- **Learning & Adaptation** - Behavioral adaptation based on experience
+- **State Management** - Robust state machine implementation
+- **Multi-Agent Coordination** - Support for coordinating multiple agents
+- **Extensible Architecture** - Modular design for easy customization and integration
 
 ## Technologies & Tools
 
-- **AI/ML Frameworks** - TensorFlow, PyTorch, or similar
-- **Python** - Primary implementation language
-- **LLMs** - Integration with large language models for advanced reasoning
-- **Knowledge Graphs** - For semantic understanding and reasoning
-- **API Integration** - Connect with external services and tools
-- **Common Libraries:**
-  - NumPy - Numerical computing
-  - Pandas - Data processing
-  - scikit-learn - Machine learning utilities
-  - Other AI/ML dependencies
+- **C#** - Primary programming language
+- **Unity Engine** - Game development and simulation framework
+- **Common Libraries & Patterns:**
+  - Behavior Trees - For decision-making logic
+  - A* Pathfinding - For navigation
+  - State Machines - For agent state management
+  - Physics Engines - For realistic interactions
+  - UI Framework - For monitoring and debugging
 
 ## Project Structure
 
 ```
-├── agent/              # Core agent implementation
-├── environments/       # Environment definitions and interactions
-├── algorithms/         # Core algorithms and logic
-├── config/            # Configuration files
-├── tests/             # Unit and integration tests
-├── examples/          # Example usage and demonstrations
-└── README.md          # This file
+├── Assets/
+│   ├── Scripts/
+│   │   ├── Agent/           # Core agent implementation
+│   │   ├── Behaviors/       # Behavior tree nodes and logic
+│   │   ├── Navigation/      # Pathfinding and movement
+│   │   ├── Perception/      # Sensing and awareness
+│   │   └── Utils/           # Utility functions
+│   ├── Scenes/              # Unity scenes and environments
+│   ├── Prefabs/             # Reusable agent and object prefabs
+│   └── Resources/           # Configuration files and data
+├── Tests/                   # Unit tests
+├── Documentation/           # Additional documentation
+└── README.md               # This file
 ```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.8+
-- pip or conda package manager
-- Virtual environment (recommended)
+- Unity 2020 LTS or later
+- C# 8.0+
+- Git
 
 ### Installation
 
@@ -56,50 +62,67 @@ git clone https://github.com/muhabee62/Intelligent-Agent.git
 cd Intelligent-Agent
 ```
 
-2. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+2. Open the project in Unity:
+   - Launch Unity Hub
+   - Click "Add Project from Disk"
+   - Select the cloned project folder
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+3. Wait for Unity to import all assets and compile scripts
 
 ## Usage
 
-### Basic Example
+### Creating an Agent
 
-```python
-from agent import IntelligentAgent
-from environments import Environment
+1. Create a new GameObject in your scene
+2. Add the `Agent` component to the GameObject
+3. Configure the agent's behavior tree in the Inspector
+4. Set up the agent's perception system and navigation parameters
+5. Run the scene to see the agent in action
 
-# Create an environment
-env = Environment()
+### Basic Agent Setup Example
 
-# Initialize the agent
-agent = IntelligentAgent(env)
+```csharp
+using UnityEngine;
+using IntelligentAgent;
 
-# Run the agent
-agent.run()
+public class MyScene : MonoBehaviour
+{
+    void Start()
+    {
+        // Create and configure an agent
+        GameObject agentGO = new GameObject("MyAgent");
+        Agent agent = agentGO.AddComponent<Agent>();
+        
+        // Configure agent parameters
+        agent.SetSpeed(5f);
+        agent.SetPerceptionRadius(10f);
+        
+        // Initialize the agent
+        agent.Initialize();
+    }
+}
 ```
 
-### Configuration
+### Customizing Behavior
 
-Customize agent behavior through configuration files in the `config/` directory or programmatically through parameters.
+- Modify behavior trees in `Assets/Scripts/Behaviors/`
+- Extend the `Agent` class for custom agent types
+- Create custom perception sensors in `Assets/Scripts/Perception/`
+- Implement navigation strategies in `Assets/Scripts/Navigation/`
 
 ## Testing
 
-Run the test suite:
-
-```bash
-pytest tests/
-```
+Run tests through Unity's Test Framework:
+- Open `Window > General > Test Runner` in Unity
+- Select the "PlayMode" or "EditMode" tab
+- Click "Run All" to execute tests
 
 ## Documentation
 
-For detailed documentation, please refer to the individual module docstrings and the `docs/` directory (if available).
+For detailed documentation:
+- Check individual script comments and documentation
+- Review the `Documentation/` folder for architecture guides
+- Examine example scenes in `Assets/Scenes/` for usage patterns
 
 ## Contributing
 
@@ -121,7 +144,7 @@ Created by [muhabee62](https://github.com/muhabee62)
 
 ## Support
 
-For issues, questions, or suggestions, please open an GitHub issue or contact the author.
+For issues, questions, or suggestions, please open a GitHub issue or contact the author.
 
 ---
 
